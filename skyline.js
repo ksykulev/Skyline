@@ -1,14 +1,20 @@
 (function(){
   skyline.build = function(buildings){
     var result = [],
-        numBuildings = buildings.length;
+        numBuildings = buildings.length,
+        emptySkyline = true;
     for(var i = 0; i < numBuildings; i++){
       var building = buildings[i];
+      if(building[0] === building[1]){
+        //ignore buildings of zero width
+        continue;
+      }
       var x1InsertIndex = skyline.utils.array.binarySearch(building[0],result);
       var x2InsertIndex = skyline.utils.array.binarySearch(building[1],result);
-      if(i == 0){
+      if(emptySkyline){
         //first building
         result[0] = new skyline.Interval(building[0],building[1],building[2]);
+        emptySkyline = false;
       } else if(x1InsertIndex < 0 && x2InsertIndex < 0){
         //no overlap
         result.splice(-x2InsertIndex, 0, new skyline.Interval(building[0],building[1],building[2]));
@@ -31,7 +37,7 @@
           result.splice(x1InsertIndex + 1, 0, i2);
           result.splice(x1InsertIndex + 2, 0, i3);
         }
-      } else if(x1InsertIndex >= 0 && x2InsertIndex >= 0 && x1InsertIndex == x2InsertIndex){
+      } else if(x1InsertIndex >= 0 && x2InsertIndex >= 0 && x1InsertIndex === x2InsertIndex){
         //multisplit single building
         var splitInterval = result[x1InsertIndex];
         var i1 = new skyline.Interval(splitInterval.x1,building[0],splitInterval.h);

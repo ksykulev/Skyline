@@ -49,6 +49,12 @@ describe("skyline", function(){
       var expectedIntervals = [new skyline.Interval(1,5,10)];
       expect(intervals).toEqualIntervals(expectedIntervals);
     });
+    it("should not add a building with 0 width", function(){
+      var buildings = [[5,5,10],[1,5,10]];
+      var intervals = skyline.build(buildings);
+      var expectedIntervals = [new skyline.Interval(1,5,10)];
+      expect(intervals).toEqualIntervals(expectedIntervals);
+    });
     it("should build 2 intervals with no overlap", function(){
       var buildings = [[1,5,10],[6,10,10]];
       var intervals = skyline.build(buildings);
