@@ -1,0 +1,38 @@
+This is a problem I got asked during an interview that I found pretty interesting. So I decided to take a quick stab at coding it up. Probably not the most elegent or efficient way of solving it, but it gets the job done (I THINK..)
+
+The Problem:
+You are standing on the New Jersey coast looking across the river facing New York. Write an algorithm that will find the total area the skyline takes up. For simplicity assume the buildings are only square shapes. 
+
+You get an array of buildings that make up the city in this form:
+[x1,x2,height]
+
+If some or all of the interval of build B overlaps the interval of build A, assume that they are at different depths in the city. In cases like this make sure you don't double count the area that these buildings combined take up.
+
+Here is an example:
+[[11,14,2],[12,13,5]]
+          
+	  ++++
+	  |  |
+          |  |
+          |  |
+       ++++++++++
+       |  *  *  |
+       |  *  *  |
+-------|--|--|--|------------------
+      11 12 13 14
+
+Total Area: 9
+
+Usage:
+Just load up skyline.html in a browser that support canvas and html5. 
+
+Tests:
+Just load up test/specrunner.html.
+
+Contributing:
+Aka telling me i'm wrong and you found a case that my code doesn't cover correctly. Feel free to fork it and add a test to my test suite to make it fail. 
+Or if you have a completely different approach to solving this problem, code it up, i'd love to see some much more elegant approach than mine.
+
+Libaries Used:
+For testing: http://pivotal.github.com/jasmine/
+For Drawing: http://raphaeljs.com/
