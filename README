@@ -34,5 +34,5 @@ Aka telling me i'm wrong and you found a case that my code doesn't cover correct
 Or if you have a completely different approach to solving this problem, code it up, i'd love to see some much more elegant approach than mine.
 
 Libaries Used:
-For testing: http://pivotal.github.com/jasmine/
+For testing: https://jasmine.github.io/
 For Drawing: http://raphaeljs.com/
